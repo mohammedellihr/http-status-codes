@@ -9,11 +9,3 @@ An HTTP status code is a message a website 's server sends to the browser to ind
 # Sources
 
 - [Http Status Codes](https://www.webfx.com/web-development/glossary/http-status-codes/).
-
-# Tools
-
-- Beautify CSV using [U SEO Tools](https://www.useotools.com/beautify-csv).
-
-- Convert CSV to json using [Code Beautify](https://codebeautify.org/csv-to-json-converter).
-
-- Minifier json using [Code Beautify](https://codebeautify.org/jsonminifier).
