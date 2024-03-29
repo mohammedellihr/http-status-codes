@@ -1,0 +1,352 @@
+[
+	{
+		"Code": "100",
+		"Status": "Continue",
+		"Description": "This means that the server has received the request headers, and that the client should proceed to send the request body (in the case of a request for which a body needs to be sent; for example, a POST request). If the request body is large, sending it to a server when a request has already been rejected based upon inappropriate headers is inefficient. To have a server check if the request could be accepted based on the request's headers alone, a client must send Expect: 100-continue as a header in its initial request[2] and check if a 100 Continue status code is received in response before continuing (or receive 417 Expectation Failed and not continue).[2]"
+	},
+	{
+		"Code": "101",
+		"Status": "Switching Protocols",
+		"Description": "This means the requester has asked the server to switch protocols and the server is acknowledging that it will do so.[2]"
+	},
+	{
+		"Code": "102",
+		"Status": "Processing",
+		"Description": "(WebDAV; RFC 2518) As a WebDAV request may contain many sub-requests involving file operations, it may take a long time to complete the request. This code indicates that the server has received and is processing the request, but no response is available yet.[3] This prevents the client from timing out and assuming the request was lost."
+	},
+	{
+		"Code": "200",
+		"Status": "OK",
+		"Description": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request, the response will contain an entity describing or containing the result of the action.[2]"
+	},
+	{
+		"Code": "201",
+		"Status": "Created",
+		"Description": "The request has been fulfilled and resulted in a new resource being created.[2]"
+	},
+	{
+		"Code": "202",
+		"Status": "Accepted",
+		"Description": "The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.[2]"
+	},
+	{
+		"Code": "203",
+		"Status": "Non-Authoritative Information",
+		"Description": "(since HTTP/1.1) The server successfully processed the request, but is returning information that may be from another source.[2]"
+	},
+	{
+		"Code": "204",
+		"Status": "No Content",
+		"Description": "The server successfully processed the request, but is not returning any content.[2]"
+	},
+	{
+		"Code": "205",
+		"Status": "Reset Content",
+		"Description": "The server successfully processed the request, but is not returning any content. Unlike a 204 response, this response requires that the requester reset the document view.[2]"
+	},
+	{
+		"Code": "206",
+		"Status": "Partial Content",
+		"Description": "The server is delivering only part of the resource due to a range header sent by the client. The range header is used by tools like wget to enable resuming interrupted downloads or split a download into multiple simultaneous streams.[2]"
+	},
+	{
+		"Code": "207",
+		"Status": "Multi-Status",
+		"Description": "(WebDAV; RFC 4918) The message body that follows is an XML message and can contain a number of separate response codes, depending on how many sub-requests were made.[4]"
+	},
+	{
+		"Code": "208",
+		"Status": "Already Reported",
+		"Description": "(WebDAV; RFC 5842) The members of a DAV binding have already been enumerated in a previous reply to this request and are not being included again."
+	},
+	{
+		"Code": "226",
+		"Status": "IM Used",
+		"Description": "(RFC 3229) The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.[5]"
+	},
+	{
+		"Code": "300",
+		"Status": "Multiple Choices",
+		"Description": "Indicates multiple options for the resource that the client may follow. It, for instance, could be used to present different format options for video, list files with different extensions, or word sense disambiguation.[2]"
+	},
+	{
+		"Code": "301",
+		"Status": "Moved Permanently",
+		"Description": "This and all future requests should be directed to the given URI.[2]"
+	},
+	{
+		"Code": "302",
+		"Status": "Found",
+		"Description": "This is an example of industry practice contradicting the standard.[2] The HTTP/1.0 specification (RFC 1945) required the client to perform a temporary redirect (the original describing phrase was \"Moved Temporarily\"),[6] but popular browsers implemented 302 with the functionality of a 303 See Other. Therefore, HTTP/1.1 added status codes 303 and 307 to distinguish between the two behaviours.[7] However, some Web applications and frameworks use the 302 status code as if it were the 303.[citation needed]"
+	},
+	{
+		"Code": "303",
+		"Status": "See Other",
+		"Description": "(since HTTP/1.1) The response to the request can be found under another URI using a GET method. When received in response to a POST (or PUT/DELETE), it should be assumed that the server has received the data and the redirect should be issued with a separate GET message.[2]"
+	},
+	{
+		"Code": "304",
+		"Status": "Not Modified",
+		"Description": "Indicates the resource has not been modified since last requested.[2] Typically, the HTTP client provides a header like the If-Modified-Since header to provide a time against which to compare. Using this saves bandwidth and reprocessing on both the server and client, as only the header data must be sent and received in comparison to the entirety of the page being re-processed by the server, then sent again using more bandwidth of the server and client."
+	},
+	{
+		"Code": "305",
+		"Status": "Use Proxy",
+		"Description": "(since HTTP/1.1) Many HTTP clients (such as Mozilla[8] and Internet Explorer) do not correctly handle responses with this status code, primarily for security reasons.[2]"
+	},
+	{
+		"Code": "306",
+		"Status": "Switch Proxy",
+		"Description": "No longer used.[2] Originally meant \"Subsequent requests should use the specified proxy.\"[9]"
+	},
+	{
+		"Code": "307",
+		"Status": "Temporary Redirect",
+		"Description": "(since HTTP/1.1) In this case, the request should be repeated with another URI; however, future requests can still use the original URI.[2] In contrast to 302, the request method should not be changed when reissuing the original request. For instance, a POST request must be repeated using another POST request."
+	},
+	{
+		"Code": "308",
+		"Status": "Permanent Redirect",
+		"Description": "(experimental Internet-Draft)[10] The request, and all future requests should be repeated using another URI. 307 and 308 (as proposed) parallel the behaviours of 302 and 301, but do not require the HTTP method to change. So, for example, submitting a form to a permanently redirected resource may continue smoothly."
+	},
+	{
+		"Code": "400",
+		"Status": "Bad Request",
+		"Description": "The request cannot be fulfilled due to bad syntax.[2]"
+	},
+	{
+		"Code": "401",
+		"Status": "Unauthorized",
+		"Description": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided.[2] The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource. See Basic access authentication and Digest access authentication."
+	},
+	{
+		"Code": "402",
+		"Status": "Payment Required",
+		"Description": "Reserved for future use.[2] The original intention was that this code might be used as part of some form of digital cash or micropayment scheme, but that has not happened, and this code is not usually used. As an example of its use, however, Apple's MobileMe service generates a 402 error (\"httpStatusCode:402\" in the Mac OS X Console log) if the MobileMe account is delinquent.[citation needed]"
+	},
+	{
+		"Code": "403",
+		"Status": "Forbidden",
+		"Description": "The request was a legal request, but the server is refusing to respond to it.[2] Unlike a 401 Unauthorized response, authenticating will make no difference.[2]"
+	},
+	{
+		"Code": "404",
+		"Status": "Not Found",
+		"Description": "The requested resource could not be found but may be available again in the future.[2] Subsequent requests by the client are permissible."
+	},
+	{
+		"Code": "405",
+		"Status": "Method Not Allowed",
+		"Description": "A request was made of a resource using a request method not supported by that resource;[2] for example, using GET on a form which requires data to be presented via POST, or using PUT on a read-only resource."
+	},
+	{
+		"Code": "406",
+		"Status": "Not Acceptable",
+		"Description": "The requested resource is only capable of generating content not acceptable according to the Accept headers sent in the request.[2]"
+	},
+	{
+		"Code": "407",
+		"Status": "Proxy Authentication Required",
+		"Description": "The client must first authenticate itself with the proxy.[2]"
+	},
+	{
+		"Code": "408",
+		"Status": "Request Timeout",
+		"Description": "The server timed out waiting for the request.[2] According to W3 HTTP specifications: \"The client did not produce a request within the time that the server was prepared to wait. The client MAY repeat the request without modifications at any later time.\""
+	},
+	{
+		"Code": "409",
+		"Status": "Conflict",
+		"Description": "Indicates that the request could not be processed because of conflict in the request, such as an edit conflict.[2]"
+	},
+	{
+		"Code": "410",
+		"Status": "Gone",
+		"Description": "Indicates that the resource requested is no longer available and will not be available again.[2] This should be used when a resource has been intentionally removed and the resource should be purged. Upon receiving a 410 status code, the client should not request the resource again in the future. Clients such as search engines should remove the resource from their indices. Most use cases do not require clients and search engines to purge the resource, and a \"404 Not Found\" may be used instead."
+	},
+	{
+		"Code": "411",
+		"Status": "Length Required",
+		"Description": "The request did not specify the length of its content, which is required by the requested resource.[2]"
+	},
+	{
+		"Code": "412",
+		"Status": "Precondition Failed",
+		"Description": "The server does not meet one of the preconditions that the requester put on the request.[2]"
+	},
+	{
+		"Code": "413",
+		"Status": "Request Entity Too Large",
+		"Description": "The request is larger than the server is willing or able to process.[2]"
+	},
+	{
+		"Code": "414",
+		"Status": "Request-URI Too Long",
+		"Description": "The URI provided was too long for the server to process.[2]"
+	},
+	{
+		"Code": "415",
+		"Status": "Unsupported Media Type",
+		"Description": "The request entity has a media type which the server or resource does not support.[2] For example, the client uploads an image as image/svg+xml, but the server requires that images use a different format."
+	},
+	{
+		"Code": "416",
+		"Status": "Requested Range Not Satisfiable",
+		"Description": "The client has asked for a portion of the file, but the server cannot supply that portion.[2] For example, if the client asked for a part of the file that lies beyond the end of the file."
+	},
+	{
+		"Code": "417",
+		"Status": "Expectation Failed",
+		"Description": "The server cannot meet the requirements of the Expect request-header field.[2]"
+	},
+	{
+		"Code": "418",
+		"Status": "I’m a teapot",
+		"Description": "(RFC 2324) This code was defined in 1998 as one of the traditional IETF April Fools' jokes, in RFC 2324, Hyper Text Coffee Pot Control Protocol, and is not expected to be implemented by actual HTTP servers. However, known implementations do exist.[11]"
+	},
+	{
+		"Code": "420",
+		"Status": "Enhance Your Calm",
+		"Description": "(Twitter) Returned by the Twitter Search and Trends API when the client is being rate limited.[12] Likely a reference to this number's association with marijuana. Other services may wish to implement the 429 Too Many Requests response code instead. The phrase \"Enhance Your Calm\" is a reference to Demolition Man (film). In the film, Sylvester Stallone's character John Spartan is a hot-head in a generally more subdued future, and is regularly told to \"Enhance your calm\" rather than a more common phrase like \"calm down\"."
+	},
+	{
+		"Code": "422",
+		"Status": "Unprocessable Entity",
+		"Description": "(WebDAV; RFC 4918) The request was well-formed but was unable to be followed due to semantic errors.[4]"
+	},
+	{
+		"Code": "423",
+		"Status": "Locked",
+		"Description": "(WebDAV; RFC 4918) The resource that is being accessed is locked.[4]"
+	},
+	{
+		"Code": "424",
+		"Status": "Failed Dependency",
+		"Description": "(WebDAV; RFC 4918) The request failed due to failure of a previous request (e.g. a PROPPATCH).[4]"
+	},
+	{
+		"Code": "424",
+		"Status": "Method Failure",
+		"Description": "(WebDAV)[13] Indicates the method was not executed on a particular resource within its scope because some part of the method's execution failed causing the entire method to be aborted."
+	},
+	{
+		"Code": "425",
+		"Status": "Unordered Collection",
+		"Description": "(Internet draft) Defined in drafts of \"WebDAV Advanced Collections Protocol\",[14] but not present in \"Web Distributed Authoring and Versioning (WebDAV) Ordered Collections Protocol\".[15]"
+	},
+	{
+		"Code": "426",
+		"Status": "Upgrade Required",
+		"Description": "(RFC 2817) The client should switch to a different protocol such as TLS/1.0.[16]"
+	},
+	{
+		"Code": "428",
+		"Status": "Precondition Required",
+		"Description": "(RFC 6585) The origin server requires the request to be conditional. Intended to prevent \"the 'lost update' problem, where a client GETs a resource's state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.\"[17]"
+	},
+	{
+		"Code": "429",
+		"Status": "Too Many Requests",
+		"Description": "(RFC 6585) The user has sent too many requests in a given amount of time. Intended for use with rate limiting schemes.[17]"
+	},
+	{
+		"Code": "431",
+		"Status": "Request Header Fields Too Large",
+		"Description": "(RFC 6585) The server is unwilling to process the request because either an individual header field, or all the header fields collectively, are too large.[17]"
+	},
+	{
+		"Code": "444",
+		"Status": "No Response",
+		"Description": "(Nginx) Used in Nginx logs to indicate that the server has returned no information to the client and closed the connection (useful as a deterrent for malware)."
+	},
+	{
+		"Code": "449",
+		"Status": "Retry With",
+		"Description": "(Microsoft) A Microsoft extension. The request should be retried after performing the appropriate action.[18] Often search-engines or custom applications will ignore required parameters. Where no default action is appropriate, the Aviongoo website sends a \"HTTP/1.1 449 Retry with valid parameters: param1, param2, . . .\" response. The applications may choose to learn, or not."
+	},
+	{
+		"Code": "450",
+		"Status": "Blocked by Windows Parental Controls",
+		"Description": "(Microsoft) A Microsoft extension. This error is given when Windows Parental Controls are turned on and are blocking access to the given webpage.[19]"
+	},
+	{
+		"Code": "451",
+		"Status": "Unavailable For Legal Reasons",
+		"Description": "(Internet draft) Defined in the internet draft \"A New HTTP Status Code for Legally-restricted Resources\",[20]. Intended to be used when resource access is denied for legal reasons, e.g. censorship or government-mandated blocked access. Likely a reference to the 1953 dystopian novel Fahrenheit 451, where books are outlawed."
+	},
+	{
+		"Code": "499",
+		"Status": "Client Closed Request",
+		"Description": "(Nginx) Used in Nginx logs to indicate when the connection has been closed by client while the server is still processing its request, making server unable to send a status code back.[21]"
+	},
+	{
+		"Code": "500",
+		"Status": "Internal Server Error",
+		"Description": "A generic error message, given when no more specific message is suitable.[2]"
+	},
+	{
+		"Code": "501",
+		"Status": "Not Implemented",
+		"Description": "The server either does not recognise the request method, or it lacks the ability to fulfill the request.[2]"
+	},
+	{
+		"Code": "502",
+		"Status": "Bad Gateway",
+		"Description": "The server was acting as a gateway or proxy and received an invalid response from the upstream server.[2]"
+	},
+	{
+		"Code": "503",
+		"Status": "Service Unavailable",
+		"Description": "The server is currently unavailable (because it is overloaded or down for maintenance).[2] Generally, this is a temporary state."
+	},
+	{
+		"Code": "504",
+		"Status": "Gateway Timeout",
+		"Description": "The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.[2]"
+	},
+	{
+		"Code": "505",
+		"Status": "HTTP Version Not Supported",
+		"Description": "The server does not support the HTTP protocol version used in the request.[2]"
+	},
+	{
+		"Code": "506",
+		"Status": "Variant Also Negotiates",
+		"Description": "(RFC 2295) Transparent content negotiation for the request results in a circular reference.[22]"
+	},
+	{
+		"Code": "507",
+		"Status": "Insufficient Storage",
+		"Description": "(WebDAV; RFC 4918) The server is unable to store the representation needed to complete the request.[4]"
+	},
+	{
+		"Code": "508",
+		"Status": "Loop Detected",
+		"Description": "(WebDAV; RFC 5842) The server detected an infinite loop while processing the request (sent in lieu of 208)."
+	},
+	{
+		"Code": "509",
+		"Status": "Bandwidth Limit Exceeded",
+		"Description": "(Apache bw/limited extension) This status code, while used by many servers, is not specified in any RFCs."
+	},
+	{
+		"Code": "510",
+		"Status": "Not Extended",
+		"Description": "(RFC 2774) Further extensions to the request are required for the server to fulfill it.[23]"
+	},
+	{
+		"Code": "511",
+		"Status": "Network Authentication Required",
+		"Description": "(RFC 6585) The client needs to authenticate to gain network access. Intended for use by intercepting proxies used to control access to the network (e.g. \"captive portals\" used to require agreement to Terms of Service before granting full Internet access via a Wi-Fi hotspot).[17]"
+	},
+	{
+		"Code": "598",
+		"Status": "Network read timeout error",
+		"Description": "(Unknown) This status code is not specified in any RFCs, but is used by Microsoft Corp. HTTP proxies to signal a network read timeout behind the proxy to a client in front of the proxy."
+	},
+	{
+		"Code": "599",
+		"Status": "Network connect timeout error",
+		"Description": "(Unknown) This status code is not specified in any RFCs, but is used by Microsoft Corp. HTTP proxies to signal a network connect timeout behind the proxy to a client in front of the proxy."
+	}
+]
