@@ -1,6 +1,6 @@
 # Http Status Codes
 
-HTTP status codes list (Code, Status, Description) in csv and json.
+List of HTTP status codes (Code, Status, Description) in CSV and JSON formats.
 
 ## What is HTTP status code?
 
